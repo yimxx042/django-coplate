@@ -25,7 +25,7 @@ SECRET_KEY = '1%=9httr-lp4p%dt5sw(ft&c$3#5c@vr&q$@sa^bx%n52hbqe1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -130,13 +130,10 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = "coplate.User"
 
 AUTHENTICATION_BACKENDS = [
-    ...
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
-
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
-    ...
 ]
 
 #Email settings
