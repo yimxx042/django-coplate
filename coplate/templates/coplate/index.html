@@ -10,7 +10,7 @@
 <h1>website </h1>
 
     {% if user.is_authenticated %}
-        <p> Welcome, {{user}}!</p>
+        <p> Welcome, {{user}}, nickname: {{user.nicknam}}!</p>
     {% else %}
         <p>Logout status</p>
     {% endif %}
