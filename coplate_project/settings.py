@@ -142,6 +142,9 @@ ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_email_confirmat
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "account_email_confirmation_done"
 PASSWORD_RESET_TIMEOUT_DAYS = 3
 
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "account_email_confirmation_done"
+ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
+
 #Email settings
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
