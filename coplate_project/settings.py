@@ -31,18 +31,18 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'coplate',
-    'widget_tweaks',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "coplate",
+    "widget_tweaks",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
 ]
 
 SITE_ID = 1
@@ -116,16 +116,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/uploads/"
 
-#Auth Settings
+# Auth settings
+
 AUTH_USER_MODEL = "coplate.User"
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
+    "django.contrib.auth.backends.ModelBackend",
     # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 ACCOUNT_SIGNUP_REDIRECT_URL = "index"
@@ -138,13 +141,12 @@ ACCOUNT_SIGNUP_FORM_CLASS = "coplate.forms.SignupForm"
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
-ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_email_confirmation_done"
-ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "account_email_confirmation_done"
-PASSWORD_RESET_TIMEOUT_DAYS = 3
-
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = (
+    "account_email_confirmation_done"
+)
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "account_email_confirmation_done"
 ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
 
-#Email settings
+# Email settings
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
