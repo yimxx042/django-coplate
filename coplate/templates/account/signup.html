@@ -1,0 +1,56 @@
+{% extends "coplate_base/base.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Signup | Coplate{% endblock title %}
+
+{% block content %}
+<div class="account-background">
+  <main class="account">
+    <div class="title">
+      <a href="{% url 'index' %}">
+        <img class="logo" src="{% static 'coplate/assets/coplate-logo.svg' %}" alt="Coplate Logo">
+      </a>
+    </div>
+
+    <form method="post">
+      {% csrf_token %}
+      <div>
+        {% comment %} <input type="email" name="email" placeholder="EMAIL" autocomplete="email" class="cp-input" required id="id_email"> {% endcomment %}
+        {{ form.email|add_class:"cp-input"|attr:"placeholder:EMAIL"|add_error_class:"error" }}
+          {% for error in form.email.errors %}
+            <div class="error-message">{{ error }}</div>
+          {% endfor %}
+      </div>
+      <div>
+        {% comment %} <input type="text" name="nickname" maxlength="15" placeholder="NICKNAME" class="error cp-input" required id="id_nickname"> {% endcomment %}
+        {% comment %} <div class="error-message">This nickname is already registered.</div> {% endcomment %}
+        {{ form.nickname|add_class:"cp-input"|attr:"placeholder:Nickname"|add_error_class:"error" }}
+        {% for error in form.nickname.errors %}
+          <div class="error-message">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div>
+        {% comment %} <input type="password" name="password1" placeholder="PASSWORD" autocomplete="new-password" class="cp-input" required id="id_password1"> {% endcomment %}
+        {{ form.password1|add_class:"cp-input"|attr:"placeholder:PASSWORD"|add_error_class:"error"}}
+        {% for error in form.password1.errors %}
+          <div class="error-message">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div>
+        {% comment %} <input type="password" name="password2" placeholder="CONFIRM PASSWORD" class="cp-input" required id="id_password2"> {% endcomment %}
+        {{ form.password2|add_class:"cp-input"|attr:"placeholder:CONFIRM PASSWORD"|add_error_class:"error"}}
+        {% for error in form.password2.errors %}
+          <div class="error-message">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <button class="cp-button" type="submit">Signup</button>
+    </form>
+
+    <div class="info">
+      Are you already a member?<a class="link" href="{% url 'account_login' %}">Login</a>
+    </div>
+  </main>
+</div>
+{% endblock content %}
